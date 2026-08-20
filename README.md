@@ -1,4 +1,4 @@
-# Project Name: Genre.ML
+# 🎵 Music Genre Predictor (K-NN)
 
 # Overview: 
 This program uses numpy, pandas, and Scikit-Learn's KNN algorithm to filter the numerical features of 23,000 songs on Spotify; matplotlib to help visualize genres and their numerical feature averages, showcasing patterns within each genre/subgenre; and Scikit-Learn for the KNN model to predict genre labels by analyzing the proximity of numerical features.
