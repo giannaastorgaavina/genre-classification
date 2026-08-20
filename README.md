@@ -3,7 +3,7 @@
 # Overview: 
 This program analyzes the numerical features of 23,000 Spotify songs across **six musical genres**: EDM, rock, latin, pop, r&b, and rap. The data is observed over a time period of seven decades, 1950 through 2020. The following **eight** features are plotted: valence, acousticness, instrumentalness, tempo, danceability, speechiness, loudness, and energy. 
 
-It leverages numpy and pandas for data wrangling, Matplotlib for visualization output, and Scikit-Learn to build a KNN prediction model based on feature proximity.
+It leverages NumPy and Pandas for data wrangling, Matplotlib for visualization output, and Scikit-Learn to build a KNN prediction model based on feature proximity.
 
 # Data Analysis & Trends: 
 To ensure readability, the data visualizations are divided into two distinct figures, displaying **four** features per figure. Key trends identified over the observed time period include:
