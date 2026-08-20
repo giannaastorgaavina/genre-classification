@@ -73,7 +73,7 @@ def main():
     # turn axes into list for looping
     axes1_list = [axes1[0,0], axes1[0,1], axes1[1,0],axes1[1,1]]
 
-    # plot different feature for each ax
+    # Plot a different feature for each axis
     for feature1, ax in zip(features_group_1, axes1_list):
         
         # plot the lines and line colors for each genre 
