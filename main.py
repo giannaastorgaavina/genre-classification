@@ -7,7 +7,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report 
 
-def main(): # NOTE: visualizations will only show if user quits the program.
+def main(): # NOTE: VISUALIZATIONS WILL ONLY APPEAR WHEN USER QUITS THE PROGRAM
     # ----------------------------------------------------------------------------------------
     # Scientific Computation (Data Wrangling Section)
     spotify_file = 'spotify_songs.csv'
