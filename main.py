@@ -14,8 +14,8 @@ def main():
     spotify_df = pd.read_csv(spotify_file) 
     spotify_df.drop_duplicates(inplace=True)
 
-    # for song era use (ex: 70s, 80s, 90s)
-    # did not use dt because some years are not formatted as yyyy-mm-dd
+    # For song era use (ex: 70s, 80s, 90s)
+    # Avoided datetime conversion due to inconsistent 'yyyy'mm'dd' formatting
     num_years = []
     for year in spotify_df['track_album_release_date']:
         num_year = int(str(year)[:4]) # extract first 4 digits
@@ -207,7 +207,7 @@ def main():
     print("This program will predict a song's genre.")
     print("Notes:\n")
     print("         I recommend the website 'tunebat.com' at your own discrection to look up values for a song.\n")
-    print("         If an attribute value is unknown, hit enter. The df average will be used.")
+    print("         If an feature value is unknown, hit enter. The df average will be used.")
     print("         'Loudness' is measured in decibels (dB). This value is usually negative.\n")
     print("         The values entered MUST be decimals < 1, with the exception of 'loudness'. The website\n ")
     print("         uses integers (ex: if danceability is 60, this should be input as 0.6)")
@@ -217,7 +217,7 @@ def main():
 
     start_prog = input("Please enter to start, or 'q' to quit.\n").strip()
 
-    if start_prog == 'q': # check if user want to quit
+    if start_prog == 'q': 
         proceed = False # set bool var to false if they do
  
     for feature_name in X.columns: # for feature in numerical columns
@@ -232,46 +232,50 @@ def main():
             f_min = X[feature_name].min()
             f_max = X[feature_name].max()
 
-            valid_input = False # dummy var to stop looping if needed
+            valid_input = False # Flag to validate current feature input
 
             while not valid_input: 
-            # loop will run until user enters valid input, then break out to for loop to move on to next feature
+            # The loop will run until the user enters valid input, then 
+            # Break out to allow the loop to progress to next feature 
                 print("Enter a value WITHIN the feature range. Should be decimal < 1 with exception of 'loudness' (or 'q' to quit).")
                 print("Feature: "+feature_name.upper()+"\n")
                 print("Average:",f_avg )
                 print("Maximum:",f_max )
                 print("Minimum:",f_min,"\n" )
 
-                user_input = input("Enter a value: \n").strip() # get value 
+                user_input = input("Enter a value: \n").strip() # Retrieve numerical value 
 
-                if user_input.strip() == "": # if they hit 'enter'
-                    print("Average used.") # just use avg
-                    user_input_feat.append(f_avg) # add to user list
-                    valid_input = True # stop looping, move onto next feature
+                if user_input.strip() == "": # If they hit enter...
+                    print("Average used.") # ...program will use the average
+                    user_input_feat.append(f_avg) # Add to list
+                    valid_input = True # Terminates looping, moves onto next feature
 
-                # check for quit condition again 
+                # Re-evaluate quit condition 
                 elif user_input.lower() == 'q':
                     valid_input = True
                     proceed = False 
 
-                else: # if numeric, modify string so that decimals/negatives do not crash prog
-                    string_check = user_input # checker variable
-                    # remove non-numeric exceptions (negative sign and decimals)
-                    if string_check[0] == '-': # check for negative sign 
-
-                        string_check = string_check[1:] # remove negative sign, store every after
+                else: 
+                    string_check = user_input # Flag variable
                     
-                    split_val = string_check.split('.') # split string at decimal points
+                    # Strip negative sign prior to .isdigit() validation
+                    if string_check[0] == '-': 
 
-                        # join to create a purely numerical string 
-                        # check if this new string only contains numbers and if they didn't hit enter
+                        string_check = string_check[1:] # Remove the negative to evaluate remaining characters
+                    
+                    split_val = string_check.split('.') # Split the string at decimal points
+
+                        # Join to create a purely numerical string 
+                        # Check if this new string:
+                            # only contains numbers 
+                            # if they didn't hit enter
                     if "".join(split_val).isdigit() and string_check != "": 
 
-                        value_float = float(user_input) # turn original input into decimal point
-                        user_input_feat.append(value_float) # append to list of values
-                        valid_input = True # stop looping, move onto next feature
+                        value_float = float(user_input) # Cast the original string input into a float
+                        user_input_feat.append(value_float) # Store the validated numeric value
+                        valid_input = True # Flag input as valid to exit the loop
                         
-                    else: # if non-numeric input
+                    else: # If user input is non-numeric
                         print("Invalid input. Please either hit the 'enter' key or enter a numerical value.\n")
 
     # Once finished, perform final case check:
