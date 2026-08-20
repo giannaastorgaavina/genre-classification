@@ -276,7 +276,7 @@ def main(): # NOTE: visualizations will only show if user quits the program.
 
     # Once finished, perform final case check:
     # case 1: predict genre using user input (if proceeded)
-    # case 2: or quit prog
+    # case 2: or quit progam
 
     # analyze user's df, use column with vector X (feature columns)
     if proceed: # if they input all values, make a prediction
