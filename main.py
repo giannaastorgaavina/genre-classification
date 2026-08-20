@@ -7,7 +7,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report 
 
-def main(): # NOTE: VISUALIZATIONS WILL ONLY APPEAR WHEN USER QUITS THE PROGRAM
+def main(): 
     # ----------------------------------------------------------------------------------------
     # Scientific Computation (Data Wrangling Section)
     spotify_file = 'spotify_songs.csv'
@@ -15,7 +15,7 @@ def main(): # NOTE: VISUALIZATIONS WILL ONLY APPEAR WHEN USER QUITS THE PROGRAM
     spotify_df.drop_duplicates(inplace=True)
 
     # for song era use (ex: 70s, 80s, 90s)
-    # didnt use dt because some years are not formatted as yyyy-mm-dd
+    # did not use dt because some years are not formatted as yyyy-mm-dd
     num_years = []
     for year in spotify_df['track_album_release_date']:
         num_year = int(str(year)[:4]) # extract first 4 digits
@@ -206,8 +206,8 @@ def main(): # NOTE: VISUALIZATIONS WILL ONLY APPEAR WHEN USER QUITS THE PROGRAM
 # ML KNN Model Testing -- User Input 
     print("This program will predict a song's genre.")
     print("Notes:\n")
-    print("         I recommend the website 'tunebat.com' to look up values for a song.\n")
-    print("         If you do not know a value, hit enter. The df average will be used.")
+    print("         I recommend the website 'tunebat.com' at your own discrection to look up values for a song.\n")
+    print("         If an attribute value is unknown, hit enter. The df average will be used.")
     print("         'Loudness' is measured in decibels (dB). This value is usually negative.\n")
     print("         The values entered MUST be decimals < 1, with the exception of 'loudness'. The website\n ")
     print("         uses integers (ex: if danceability is 60, this should be input as 0.6)")
