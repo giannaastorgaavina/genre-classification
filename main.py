@@ -1,17 +1,14 @@
-# Gianna Astorga Avina
-# ITP-216
-# Final Project
 
 # Description: 
 
-# General: This program uses numpy and pandas to filter the
+# This program uses numpy and pandas to filter the
 # numerical features of 23,000 songs on Spotify; matplotlib to help visualize genres and 
 # their numerical feature averages, showcasing patterns within each genre/subgenre; and Scikit-Learn for
 # the KNN model to predict genre labels by analyzing the proximity of numerical features.
 
-# Interpretations: The visualizations are split into two figures for ease of readability. Throughout these
+# Data Analysis: The visualizations are split into two figures for ease of readability. Throughout these
 # visualizations, there are many notable trends with the most significant being: decline in acousticness
-# over the timespan; rap genre has maintained a high level of 'speechiness'; edm showcasing
+# over the observed time period; rap genre has maintained a high level of 'speechiness'; edm reflecting
 # spikes in instrumentalness; general downward trend in song 'happiness' (valence).
 
 
