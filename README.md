@@ -1,4 +1,4 @@
-# Music Genre Classifier
+# Spotify Music-Genre Classifier & Audio Trend Analysis
 
 # Overview: 
 This program analyzes the numerical features of 23,000 Spotify songs across **six musical genres**: EDM, rock, latin, pop, r&b, and rap. The data is observed over a time period of seven decades, 1950 through 2020. The following **eight** features are plotted: valence, acousticness, instrumentalness, tempo, danceability, speechiness, loudness, and energy. 
